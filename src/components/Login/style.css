@@ -1,0 +1,22 @@
+form {
+    display:flex;
+    flex-direction: column;
+    font-family: 'DOS';
+  
+  }
+  
+  input[type=text] {
+    padding:5px;
+    margin: 15px;
+    outline: 0;
+    background-color: #000000;
+    color: #A8A8A8;
+    font-family: 'DOS';
+  }
+  button {
+    margin-bottom: 15px;
+    margin-top: 15px;
+  }
+  fieldset {
+    font-family: 'DOS';
+  }
