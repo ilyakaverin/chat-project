@@ -1,0 +1,17 @@
+.wrapper {
+    height: calc(100% - 155px);
+    width:1200px;
+    font-family: 'DOS', 'Helvetica', sans-serif;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: 1fr ;
+    grid-gap: 15px;
+   
+}
+.inner {
+    display:grid;
+    grid-template-rows: 2fr 1fr;
+}
+.logo {
+    border:1px solid black;
+}
