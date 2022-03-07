@@ -1,16 +1,15 @@
-@import '../node_modules/tuicss/dist/tuicss.min.css';
+@import "../node_modules/tuicss/dist/tuicss.min.css";
 
 body {
   margin: 0;
-  font-family: 'DOS', 'Helvetica'
-  
+  font-family: "DOS", "Helvetica";
 }
 
 #root {
-  width:100%;
+  width: 100%;
   display: flex;
-align-items: center;
-justify-content: center;
-background-color: #0000FF;
-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: #0000ff;
+  height: 100vh;
 }

@@ -1,26 +1,25 @@
 form {
-    display:flex;
-    flex-direction: column;
-    font-family: 'DOS';
-  
-  }
-  
-  input[type=text] {
-    padding:5px;
-    margin: 15px;
-    outline: 0;
-    background-color: #000000;
-    color: #A8A8A8;
-    font-family: 'DOS';
-    caret-color: rgb(0, 200, 0);
-  }
-  button {
-    margin-bottom: 15px;
-    margin-top: 15px;
-  }
-  button:disabled {
-    background-color: #A8A8A8 !important;
+  display: flex;
+  flex-direction: column;
+  font-family: "DOS";
 }
-  fieldset {
-    font-family: 'DOS';
-  }
+
+input[type="text"] {
+  padding: 5px;
+  margin: 15px;
+  outline: 0;
+  background-color: #000000;
+  color: #a8a8a8;
+  font-family: "DOS";
+  caret-color: rgb(0, 200, 0);
+}
+button {
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+button:disabled {
+  background-color: #a8a8a8 !important;
+}
+fieldset {
+  font-family: "DOS";
+}
