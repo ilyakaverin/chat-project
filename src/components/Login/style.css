@@ -22,7 +22,7 @@
   background-color: #000000;
   color: #a8a8a8;
   caret-color: rgb(0, 200, 0);
-  border:none
+  border: none;
 }
 .login-input::placeholder {
   opacity: 50%;
@@ -34,10 +34,10 @@
   background-color: #a8a8a8 !important;
 }
 .login-error {
-  color:#A80000;
+  color: #a80000;
   animation: fadeIn 0.5s;
   text-align: center;
-  background-color: #a8a8a8;;
+  background-color: #a8a8a8;
   padding: 10px;
   border-radius: 5px;
 }
