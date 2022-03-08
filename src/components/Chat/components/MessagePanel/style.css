@@ -4,16 +4,15 @@
   overflow: auto;
   align-items: flex-start;
 }
-.message-header {
-  padding: 10px;
-}
+
 .message-fieldset {
   height: calc(100% - 10px);
   border-color: black;
 }
 .outer-messages .message-header {
   text-align: center;
-  background-color: #a8a8a8;
+  padding: 10px;
+  color: #FFFFFF
 }
 .inner-messages {
   margin: 25px;

@@ -1,8 +1,23 @@
 .user-panel-header {
   padding: 10px;
-  color: #000000;
-  background-color: #a8a8a8;
+  color: #FFFFFF;
+  background-color: #000000;
+  display:flex; 
+  justify-content: space-between;
+  vertical-align: middle;
 }
-.user {
-  margin: 10px;
+.user-panel-button {
+  background: none;
+  border:none;
+  cursor: pointer;
+  color: #00A800;
+  margin: 0;
+  padding:0
 }
+.user-panel-button:hover {
+  text-decoration: underline;
+}
+.user-panel-user {
+  margin-bottom: 10px;
+}
+
