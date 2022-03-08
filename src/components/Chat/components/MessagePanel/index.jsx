@@ -9,7 +9,7 @@ const MessagePanel = ({ messages, roomId }) => {
   }, [messages]);
   return (
     <div ref={messagesRef} className="outer-messages">
-      <div className="roomName">{roomId}</div>
+      <div className="message-header">Room: {roomId}</div>
       <div className="inner-messages">
         {messages.map((message, index) => (
           <div className="message" key={index}>

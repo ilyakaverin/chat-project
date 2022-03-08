@@ -1,26 +1,22 @@
-form {
+.login-form {
   display: flex;
   flex-direction: column;
   font-family: "DOS";
 }
+.login-form * {
+  margin: 10px;
+}
 
-input[type="text"] {
+.login-input {
   padding: 5px;
-  margin: 15px;
   outline: 0;
   background-color: #000000;
   color: #a8a8a8;
-  font-family: "DOS";
   caret-color: rgb(0, 200, 0);
 }
 .login-button {
-  margin-bottom: 15px;
-  margin-top: 15px;
   padding: 5px;
 }
-button:disabled {
+.login-button:disabled {
   background-color: #a8a8a8 !important;
-}
-fieldset {
-  font-family: "DOS";
 }

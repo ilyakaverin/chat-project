@@ -1,9 +1,5 @@
-.customWrap {
-  height: 100%;
-  font-family: "DOS";
-}
-.customHead {
-  padding: 5px;
+.user-panel-header {
+  padding: 10px;
   color: #000000;
   background-color: #a8a8a8;
 }

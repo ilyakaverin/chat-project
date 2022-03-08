@@ -36,12 +36,12 @@ io.on("connection", (socket) => {
     socket.join(roomId); // joining exact room
     database.get(roomId).get("users").set(socket.id, username);
     const users = [...database.get(roomId).get("users").values()];
-    socket.to(roomId).emit("room SET_USERS", users); //  notify about connection all 
+    socket.to(roomId).emit("room SET_USERS", users); //  notify about connection all
   });
   socket.on("room NEW_MESSAGE", ({ roomId, username, text }) => {
     const object = { username, text };
     database.get(roomId).get("messages").push(object);
-    console.log(database)
+    console.log(database);
     socket.broadcast.to(roomId).emit("room NEW_MESSAGE", object);
   });
   console.log("socket connected", socket.id);

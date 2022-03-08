@@ -1,24 +1,23 @@
 .input-wrapper {
-  display: flex;
-  flex-direction: column;
   margin-top: 2px;
 }
 .input-wrapper * {
-    margin-bottom: 11px;
+  margin-bottom: 11px;
 }
-.chatInput {
+.user-input-message {
   background-color: #000000;
   color: #a8a8a8;
   outline: 0;
   width: 100%;
-  height:55px;
+  height: 55px;
   border-radius: 5px;
   padding: 10px;
   border: none;
-  
-  
 }
-.send {
+.user-input-button {
   padding: 15px;
-  
+  width: 100%;
+}
+.user-input-button:disabled {
+  background-color: #a8a8a8 !important;
 }

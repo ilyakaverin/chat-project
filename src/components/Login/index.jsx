@@ -37,13 +37,14 @@ const Login = ({ onLogin }) => {
     <div className="tui-window">
       <fieldset className="tui-fieldset">
         <legend>Telegram killer</legend>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="login-form">
           <input
             maxLength="15"
             type="text"
             placeholder="room id"
             value={roomId}
             onChange={(e) => setRoomId(e.target.value)}
+            className="login-input"
           />
           <input
             maxLength="15"
@@ -51,10 +52,11 @@ const Login = ({ onLogin }) => {
             placeholder="username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
+            className="login-input"
           />
           <button
             type="submit"
-            className="tui-button orange-168 white-text loginButton"
+            className="tui-button orange-168 white-text login-button"
             disabled={!roomId || !username || isLoading}
           >
             {isLoading ? "Entering" : "Join"}

@@ -1,16 +1,17 @@
 .outer-messages {
-  
   background-color: #00a8a8;
   height: 400px;
   overflow: auto;
   align-items: flex-start;
- 
+}
+.message-header {
+  padding: 10px;
 }
 .message-fieldset {
   height: calc(100% - 10px);
   border-color: black;
 }
-.outer-messages .roomName {
+.outer-messages .message-header {
   text-align: center;
   background-color: #a8a8a8;
 }
@@ -18,5 +19,5 @@
   margin: 25px;
 }
 .message {
-    margin:2px;
+  margin: 2px;
 }
