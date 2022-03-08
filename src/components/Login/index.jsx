@@ -30,7 +30,7 @@ const Login = ({ onLogin }) => {
       onLogin(object);
       setError(null);
       navigate(`/${roomId}`, { state: null });
-      setLoading(false)
+      setLoading(false);
     } catch (e) {
       setLoading(false);
       setError(`${e.name}:${e.message}`);
