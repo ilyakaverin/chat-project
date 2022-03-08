@@ -1,3 +1,12 @@
+.login-container {
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.login-container .login-window {
+  margin-bottom: 25px;
+}
 .login-form {
   display: flex;
   flex-direction: column;
@@ -23,4 +32,22 @@
 }
 .login-button:disabled {
   background-color: #a8a8a8 !important;
+}
+.login-error {
+  color:#A80000;
+  animation: fadeIn 0.5s;
+  text-align: center;
+  background-color: #a8a8a8;;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }

@@ -7,6 +7,7 @@ const Login = ({ onLogin }) => {
   const [roomId, setRoomId] = useState("");
   const [username, setUsername] = useState("");
   const [isLoading, setLoading] = useState(false);
+  const [error, setError] = useState(null)
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -26,15 +27,19 @@ const Login = ({ onLogin }) => {
     setLoading(true);
     try {
       await axios.post("/rooms", object);
+      onLogin(object);
+      setError(null)
+      navigate(`/${roomId}`, { state: null });
     } catch (e) {
-      throw new Error(e);
+      setLoading(false)
+      setError(`${e.name}:${e.message}`);
     }
-    onLogin(object);
-    navigate(`/${roomId}`, { state: null });
+    
   };
   return (
-    <div className="tui-window">
-      <fieldset className="tui-fieldset">
+    <div className="login-container">
+    <div className="tui-window login-window">
+      <fieldset className="tui-fieldset login-fieldset">
         <legend>Telegram killer</legend>
         <form onSubmit={handleSubmit} className="login-form">
           <input
@@ -59,10 +64,12 @@ const Login = ({ onLogin }) => {
             className="tui-button orange-168 white-text login-button"
             disabled={!roomId || !username || isLoading}
           >
-            {isLoading ? "Entering" : "Join"}
+            { isLoading ? "Entering" : "Join" }
           </button>
         </form>
       </fieldset>
+    </div>
+    { error ? <div className="login-error">{ error }</div> : null }
     </div>
   );
 };

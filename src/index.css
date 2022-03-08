@@ -12,4 +12,5 @@ body {
   justify-content: center;
   background-color: #0000ff;
   height: 100vh;
+  flex-direction: column;
 }

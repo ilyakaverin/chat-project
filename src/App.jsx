@@ -22,12 +22,18 @@ const App = () => {
       payload: object,
     }); // join room
     socket.emit("room join", object); // connect to socket
-    const { data } = await axios.get(`/rooms/${object.roomId}`); // get actual room and users
-
+   try {
+    const { data } = await axios.get(`/rooms/${object.roomId}`);
     dispatch({
       type: "SET_DATA",
       payload: data,
-    });
+    }); // get actual room and users
+   }  catch(e) {
+    throw new Error(e)
+   } 
+
+    
+    
   };
 
   const setUsers = (users) => {
