@@ -29,7 +29,6 @@ function App() {
       payload: data,
     });
   };
-  console.log(state);
 
   const setUsers = (users) => {
     dispatch({

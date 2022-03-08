@@ -3,24 +3,24 @@ const app = express();
 const server = require("http").Server(app);
 const io = require("socket.io")(server, { cors: { origin: "*" } });
 
-const db = new Map();
+const database = new Map();
 app.use(express.json());
 
 app.get("/rooms/:id", (request, response) => {
   const { id: roomId } = request.params;
-  const object = db.has(roomId)
+  const object = database.has(roomId)
     ? {
-        users: [...db.get(roomId).get("users").values()],
-        messages: [...db.get(roomId).get("messages").values()],
+        users: [...database.get(roomId).get("users").values()],
+        messages: [...database.get(roomId).get("messages").values()],
       }
     : { users: [], messages: [] };
   response.json(object);
 });
 app.post("/rooms", (request, response) => {
-  const { roomId, username } = request.body;
+  const { roomId } = request.body;
 
-  if (!db.has(roomId)) {
-    db.set(
+  if (!database.has(roomId)) {
+    database.set(
       roomId,
       new Map([
         ["users", new Map()],
@@ -34,20 +34,21 @@ app.post("/rooms", (request, response) => {
 io.on("connection", (socket) => {
   socket.on("room join", ({ roomId, username }) => {
     socket.join(roomId); // joining exact room
-    db.get(roomId).get("users").set(socket.id, username);
-    const users = [...db.get(roomId).get("users").values()];
-    socket.to(roomId).emit("room SET_USERS", users); //  notify about connection all except me (broadcast)
+    database.get(roomId).get("users").set(socket.id, username);
+    const users = [...database.get(roomId).get("users").values()];
+    socket.to(roomId).emit("room SET_USERS", users); //  notify about connection all 
   });
   socket.on("room NEW_MESSAGE", ({ roomId, username, text }) => {
     const object = { username, text };
-    db.get(roomId).get("messages").push(object);
-    socket.to(roomId).emit("room NEW_MESSAGE", object);
+    database.get(roomId).get("messages").push(object);
+    console.log(database)
+    socket.broadcast.to(roomId).emit("room NEW_MESSAGE", object);
   });
   console.log("socket connected", socket.id);
   socket.on("disconnect", () => {
-    db.forEach((value, roomId) => {
+    database.forEach((value, roomId) => {
       if (value.get("users").delete(socket.id)) {
-        const users = [...db.get(roomId).get("users").values()];
+        const users = [...database.get(roomId).get("users").values()];
         socket.broadcast.to(roomId).emit("room SET_USERS", users);
       }
     });

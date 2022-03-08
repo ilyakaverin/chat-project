@@ -2,53 +2,61 @@ import "./style.css";
 import socket from "../../../../socket";
 import { useState, useRef, useEffect } from "react";
 const InputPanel = ({ username, roomId, onAddMessage }) => {
-  const [messageValue, setMessageValue] = useState("");
+    const init = {
+        message: "",
+        typing: false
+    }
+  const [messageValue, setMessageValue] = useState(init);
 
   const ref = useRef(null);
   useEffect(() => {
     ref.current.focus();
   }, []);
+  useEffect(() => {
 
-  const sendMessage = () => {
-    socket.emit("room NEW_MESSAGE", {
-      text: messageValue,
-      username,
-      roomId,
-    });
-    onAddMessage({
-      text: messageValue,
-      username,
-    });
-    setMessageValue("");
-    ref.current.focus();
-  };
+    if(messageValue.typing) {
+
+    }
+
+
+  },[messageValue.typing])
 
   const handleSend = (e) => {
     e.preventDefault();
-    sendMessage();
+    socket.emit("room NEW_MESSAGE", {
+        text: messageValue.message,
+        username,
+        roomId,
+      });
+      onAddMessage({
+        text: messageValue.message,
+        username,
+      });
+      setMessageValue(init);
+      ref.current.focus();
   };
-  const handleKey = (e) => {
-    if (e.key === "Alt" && messageValue) {
-      e.preventDefault();
-      sendMessage();
-    }
-  };
+  
 
   return (
-    <div className="input">
-      <form onSubmit={handleSend} onKeyDown={handleKey}>
-        <textarea
+    <div className="input-wrapper">
+      <form onSubmit={handleSend} >
+        <input
+          className="chatInput"
           ref={ref}
-          rows="5"
-          value={messageValue}
-          onChange={(e) => setMessageValue(e.target.value)}
+          placeholder="type message here"
+          value={messageValue.message}
+          onChange={(e) => setMessageValue(prevState =>({
+              ...prevState,
+              message: e.target.value,
+              typing: true
+          }))}
         />
         <button
           type="submit"
           className="tui-button send"
-          disabled={!messageValue}
+          disabled={!messageValue.message}
         >
-          Send(press Alt or Command)
+          Send(press Enter)
         </button>
       </form>
     </div>

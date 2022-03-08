@@ -4,6 +4,7 @@ import MessagePanel from "./components/MessagePanel";
 import InputPanel from "./components/InputPanel";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+
 const Chat = (props) => {
   const navigate = useNavigate();
 
@@ -16,9 +17,9 @@ const Chat = (props) => {
   });
 
   return (
-    <div className="wrapper">
+    <div className="outer-wrapper">
       <UserPanel users={props.users} />
-      <div className="inner">
+      <div className="inner-wrapper">
         <MessagePanel messages={props.messages} roomId={props.roomId} />
         <InputPanel
           username={props.username}

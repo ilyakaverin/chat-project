@@ -12,8 +12,7 @@ const MessagePanel = ({ messages, roomId }) => {
       <div className="roomName">{roomId}</div>
       <div className="inner-messages">
         {messages.map((message, index) => (
-          <div key={index}>
-            {" "}
+          <div className="message" key={index}>
             <span className="red-168-text">{message.username}: </span>
             <span>{message.text}</span>
           </div>

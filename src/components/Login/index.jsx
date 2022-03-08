@@ -39,14 +39,14 @@ const Login = ({ onLogin }) => {
         <legend>Telegram killer</legend>
         <form onSubmit={handleSubmit}>
           <input
-            maxLength="10"
+            maxLength="15"
             type="text"
             placeholder="room id"
             value={roomId}
             onChange={(e) => setRoomId(e.target.value)}
           />
           <input
-            maxLength="10"
+            maxLength="15"
             type="text"
             placeholder="username"
             value={username}
@@ -54,7 +54,7 @@ const Login = ({ onLogin }) => {
           />
           <button
             type="submit"
-            className="tui-button orange-168 white-text"
+            className="tui-button orange-168 white-text loginButton"
             disabled={!roomId || !username || isLoading}
           >
             {isLoading ? "Entering" : "Join"}

@@ -13,9 +13,10 @@ input[type="text"] {
   font-family: "DOS";
   caret-color: rgb(0, 200, 0);
 }
-button {
+.login-button {
   margin-bottom: 15px;
   margin-top: 15px;
+  padding: 5px;
 }
 button:disabled {
   background-color: #a8a8a8 !important;
