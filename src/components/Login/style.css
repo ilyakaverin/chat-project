@@ -13,6 +13,10 @@
   background-color: #000000;
   color: #a8a8a8;
   caret-color: rgb(0, 200, 0);
+  border:none
+}
+.login-input::placeholder {
+  opacity: 50%;
 }
 .login-button {
   padding: 5px;

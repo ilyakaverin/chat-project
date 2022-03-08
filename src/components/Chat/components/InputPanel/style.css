@@ -14,6 +14,9 @@
   padding: 10px;
   border: none;
 }
+.user-input-message::placeholder {
+  opacity: 50%;
+}
 .user-input-button {
   padding: 15px;
   width: 100%;

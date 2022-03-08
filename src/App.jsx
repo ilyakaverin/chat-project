@@ -7,7 +7,7 @@ import reducer from "./reducer";
 import socket from "./socket";
 import axios from "axios";
 
-function App() {
+const App = () => {
   const [state, dispatch] = useReducer(reducer, {
     isEntered: false,
     roomId: null,

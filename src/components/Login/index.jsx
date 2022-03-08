@@ -1,5 +1,4 @@
 import "./style.css";
-import socket from "../../socket";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -15,7 +14,7 @@ const Login = ({ onLogin }) => {
     if (location.state) {
       setRoomId(location.state);
     }
-  }, []);
+  }, [location.state]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -41,6 +40,7 @@ const Login = ({ onLogin }) => {
           <input
             maxLength="15"
             type="text"
+            autoFocus
             placeholder="room id"
             value={roomId}
             onChange={(e) => setRoomId(e.target.value)}
