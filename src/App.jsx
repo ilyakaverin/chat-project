@@ -20,14 +20,14 @@ const App = () => {
     dispatch({
       type: "ENTERED",
       payload: object,
-    }); // join room
-    socket.emit("room join", object); // connect to socket
+    }); 
+    socket.emit("room join", object); 
     try {
       const { data } = await axios.get(`/rooms/${object.roomId}`);
       dispatch({
         type: "SET_DATA",
         payload: data,
-      }); // get actual room and users
+      }); 
     } catch (e) {
       throw new Error(e);
     }
